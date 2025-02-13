@@ -4,7 +4,7 @@
     --base-color: black;
     --base-color-light: rgba(0,0,0,.2);
     --container-color: rgba(255,255,255,.1);
-    --background-image: url('/images/lightbackground.jpg');
+    --background-image: url('images/lightbackground.jpg');
     --blur: 120px;
     --button-svg-color: skyblue;
     --button-svg-background-color: rgba(224, 224, 224, 0.9);
@@ -15,7 +15,7 @@
     --base-color: white;
     --base-color-light: rgba(255,255,255,.2);
     --container-color: rgba(0,0,0,0.05);
-    --background-image: url('/images/darkbackground.jpg');
+    --background-image: url('images/darkbackground.jpg');
     --blur: 20px;
     --button-svg-color: #4f0d4f;
     --button-svg-background-color: rgba(23, 20, 20, 0.9);
