@@ -65,100 +65,100 @@ search.addEventListener('click', () => {
                     // Getting Weather Image and Detailed Weather Description from json
                     switch (json.current.weather_code) {
                         case 0:
-                            image.src = '/images/clear.png';
+                            image.src = 'images/clear.png';
                             description.innerHTML = 'Clear Skies';                
                             break;
 
                         case 1:
-                            image.src = '/images/clear.png';
+                            image.src = 'images/clear.png';
                             description.innerHTML = 'Mainly Clear';                
                             break;
 
                         case 2:
-                            image.src = '/images/cloud.png';
+                            image.src = 'images/cloud.png';
                             description.innerHTML = 'Partly Cloudy';                
                             break;
 
                         case 3:
-                            image.src = '/images/overcast.png';
+                            image.src = 'images/overcast.png';
                             description.innerHTML = 'Overcast Skies';                
                             break;
 
                         case 45:
                         case 48:
-                            image.src = '/images/mist.png';
+                            image.src = 'images/mist.png';
                             description.innerHTML = 'Fog';                
                             break;
 
                         case 51:
                         case 56:
-                            image.src = '/images/rain.png';
+                            image.src = 'images/rain.png';
                             description.innerHTML = 'Light Drizzle';                
                             break;
 
                         case 53:
-                            image.src = '/images/rain.png';
+                            image.src = 'images/rain.png';
                             description.innerHTML = 'Moderate Drizzle';                
                             break;
 
                         case 55:
                         case 57:
-                            image.src = '/images/rain.png';
+                            image.src = 'images/rain.png';
                             description.innerHTML = 'Heavy Drizzle';                
                             break;
 
                         case 61:
                         case 66:
                         case 80:
-                            image.src = '/images/rain.png';
+                            image.src = 'images/rain.png';
                             description.innerHTML = 'Slight Rain';                
                             break;
 
                         case 63:
                         case 81:
-                            image.src = '/images/rain.png';
+                            image.src = 'images/rain.png';
                             description.innerHTML = 'Moderate Rain';                
                             break;
 
                         case 65:
                         case 67:
                         case 82:
-                            image.src = '/images/rain.png';
+                            image.src = 'images/rain.png';
                             description.innerHTML = 'Heavy Rain';                
                             break;
 
                         case 71:
                         case 77:
                         case 85:
-                            image.src = '/images/snow.png';
+                            image.src = 'images/snow.png';
                             description.innerHTML = 'Slight Snow Fall';                
                             break;
 
                         case 73:
-                            image.src = '/images/snow.png';
+                            image.src = 'images/snow.png';
                             description.innerHTML = 'Moderate Snow Fall';                
                             break;
 
                         case 75:
                         case 86:
-                            image.src = '/images/snow.png';
+                            image.src = 'images/snow.png';
                             description.innerHTML = 'Heavy Snow Fall';                
                             break;
 
                         case 95:
-                            image.src = '/images/thunder.png';
+                            image.src = 'images/thunder.png';
                             description.innerHTML = 'Thunderstorm';                
                             break;
 
                         case 96:
                         case 99:
-                            image.src = '/images/thunder_hail.png';
+                            image.src = 'images/thunder_hail.png';
                             description.innerHTML = 'Thunderstorm with Hail';                
                             break;
                         
 
                         default:
-                            image.src = '/images/clear.png';
+                            image.src = 'images/clear.png';
                             description.innerHTML = 'Clear';                 
                             break;
                     }
