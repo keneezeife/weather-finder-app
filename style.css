@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --base-color: black;
+    --base-color-light: rgba(0,0,0,.2);
+    --container-color: rgba(255,255,255,.1);
+    --background-image: url('/images/lightbackground.jpg');
+    --blur: 120px;
+    --button-svg-color: skyblue;
+    --button-svg-background-color: rgba(224, 224, 224, 0.9);
+    --button-svg-border-color: rgba(0,0,0,.2);
+}
+
+.darkmode{
+    --base-color: white;
+    --base-color-light: rgba(255,255,255,.2);
+    --container-color: rgba(0,0,0,0.05);
+    --background-image: url('/images/darkbackground.jpg');
+    --blur: 20px;
+    --button-svg-color: #4f0d4f;
+    --button-svg-background-color: rgba(23, 20, 20, 0.9);
+    --button-svg-border-color: rgba(255, 255, 255, 0.144);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+}
+
+#theme-switch{
+    height: 70px;
+    width: 70px;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--button-svg-background-color);
+    border: 2px solid var(--button-svg-border-color);    
+    backdrop-filter: blur(var(--blur));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+}
+
+#theme-switch svg{
+    fill: var(--button-svg-color);
+    height: 40px;
+    width: 40px;
+}
+
+#theme-switch svg:last-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+    display: block;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    background: var(--container-color);
+    backdrop-filter: blur(var(--blur));
+    border: 2px solid var(--base-color-light);
+    border-radius: 16px;
+    padding: 20px;
+    color: var(--base-color);
+    transition: height .6s ease;
+
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid var(--base-color-light);
+    outline: none;
+    border-radius: 10px;
+    font-size: 22px;
+    color: var(--base-color)ck;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 48px 0 42px;
+
+}
+
+.search-box i{
+    position: absolute;
+    left: 10px;
+    color: var(--base-color);
+    font-size: 28px;  
+}
+
+.search-box input::placeholder {
+    color: var(--base-color-light);
+    text-transform: capitalize;
+}
+
+.search-box button {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 28px;
+    color: var(--base-color);
+    padding: 0 40px 0 5px;
+    cursor: pointer;
+}
+
+.weather-box.active,
+.weather-details.active,
+.not-found.active {
+    visibility: visible;
+}
+
+.weather-box,
+.weather-details,
+.not-found {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.weather-box .box,
+.not-found .box {
+    transform: translateY(-100%);
+}
+
+
+.weather-box.active .box,
+.not-found.active .box {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .6s;
+}
+
+.weather-box .box .info-weather {
+    transform: translateY(-120%);
+}
+
+.container.active .weather-box .box .info-weather,
+.container.active .weather-details .humidity .info-humidity,
+.container.active .weather-details .wind .info-wind {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+}
+
+.weather-box {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.weather-box img {
+    width: 50%;
+}
+
+.weather-box .temperature{
+    position: relative;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 700;
+    margin: 20px 0 6px -30px;
+}
+
+.weather-box .temperature span {
+    position: absolute;
+    font-size: 24px;
+    margin-left: 4px;
+
+}
+
+.weather-box .description {
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.weather-details {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+
+.weather-details .humidity,
+.weather-details .wind {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    transform: translateY(-100%);
+}
+
+.weather-details.active .humidity,
+.weather-details.active .wind {
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: 1.2s;
+}
+
+.weather-details .humidity .info-humidity,
+.weather-details .wind .info-wind {
+    transform: translateY(-100%);
+    overflow: hidden;
+}
+
+.weather-details .humidity{
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.weather-details .wind{
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+
+.weather-details i {
+    font-size: 56px;
+    margin-right: 10px; 
+}
+
+.weather-details span {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.weather-details p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.not-found {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 110px;
+}
+
+.not-found img {
+    width: 65%
+}
+
+.not-found p {
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.city-hide {
+    display: none;
+}
+
+#clone-info-weather ,
+#clone-info-humidity,
+#clone-info-wind {
+    position: absolute;
+    transform: translateY(-100%);
+}
+
+#clone-info-weather .weather {
+    transform: translateY(120%);
+    transition: transform 1s ease, opacity 0s;
+    transition-delay: 0s, 2s;
+}
+
+.weather-box:not(.active) #clone-info-weather .weather {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.active-clone#clone-info-weather .weather {
+    transform: translateY(0%);
+}
+
+#clone-info-humidity span,
+#clone-info-wind span {
+    transform: translateY(100%);
+    transition: transform 1s ease;
+}
+
+.active-clone#clone-info-humidity span,
+.active-clone#clone-info-wind span {
+    transform: translateY(0%);
+}
